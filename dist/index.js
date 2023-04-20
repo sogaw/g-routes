@@ -28,13 +28,13 @@ const main = async (argv) => {
                 .split("/")
                 .map((v) => (v.startsWith(":") ? v : (0, change_case_1.paramCase)(v)))
                 .join("/");
-        const element = (0, change_case_1.pascalCase)(path);
+        const element = (0, change_case_1.pascalCase)((0, path_1.relative)(input, page).replace(/.tsx$/, ""));
         routesImport.push(`import ${element} from "${from}";`);
         routesBody.push(`  { path: "${path}", element: <${element} /> },`);
     });
     routesBody.unshift("const routes = [");
     routesBody.push("];");
-    routesBody.push("export default routes;");
+    routesBody.push("export default routes;\n");
     (0, fs_1.writeFileSync)((0, path_1.join)(cwd, output, "routes.tsx"), [...routesImport, ...routesBody].join("\n"));
 };
 exports.main = main;

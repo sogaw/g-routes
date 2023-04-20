@@ -25,7 +25,7 @@ export const main = async (argv: any) => {
         .split("/")
         .map((v) => (v.startsWith(":") ? v : kebabCase(v)))
         .join("/");
-    const element = pascalCase(path);
+    const element = pascalCase(relative(input, page).replace(/.tsx$/, ""));
 
     routesImport.push(`import ${element} from "${from}";`);
     routesBody.push(`  { path: "${path}", element: <${element} /> },`);
@@ -33,7 +33,7 @@ export const main = async (argv: any) => {
 
   routesBody.unshift("const routes = [");
   routesBody.push("];");
-  routesBody.push("export default routes;");
+  routesBody.push("export default routes;\n");
 
   writeFileSync(join(cwd, output, "routes.tsx"), [...routesImport, ...routesBody].join("\n"));
 };
