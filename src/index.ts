@@ -13,7 +13,7 @@ export const main = async (argv: any) => {
   const routesImport = ['import React from "react";'];
   const routesBody = [];
 
-  pages.forEach((page) => {
+  pages.sort().forEach((page) => {
     const from = relative(output, page).replace(/.tsx$/, "");
     const path =
       "/" +
