@@ -17,7 +17,7 @@ const main = async (argv) => {
         (0, fs_1.mkdirSync)((0, path_1.join)(cwd, output), { recursive: true });
     const routesImport = ['import React from "react";'];
     const routesBody = [];
-    pages.forEach((page) => {
+    pages.sort().forEach((page) => {
         const from = (0, path_1.relative)(output, page).replace(/.tsx$/, "");
         const path = "/" +
             (0, path_1.relative)(input, page)
