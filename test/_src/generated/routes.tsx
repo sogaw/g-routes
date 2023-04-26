@@ -1,4 +1,3 @@
-import React from "react";
 import Index from "../pages/index";
 import UsersUserIdEdit from "../pages/users/[userId]/edit";
 import UsersUserIdIndex from "../pages/users/[userId]/index";

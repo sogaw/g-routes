@@ -49,8 +49,7 @@ it("", async () => {
   const output = readFileSync(join(__dirname, "./_src/generated/routes.tsx"), "utf-8");
 
   expect(output).toEqual(
-    `import React from "react";
-import Index from "../pages/index";
+    `import Index from "../pages/index";
 import UsersUserIdEdit from "../pages/users/[userId]/edit";
 import UsersUserIdIndex from "../pages/users/[userId]/index";
 import UsersUserIdPostsPostId from "../pages/users/[userId]/posts/[postId]";

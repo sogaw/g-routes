@@ -10,7 +10,7 @@ export const main = async (argv: any) => {
   const pages = await getPages(input);
   if (!existsSync(join(cwd, output))) mkdirSync(join(cwd, output), { recursive: true });
 
-  const routesImport = ['import React from "react";'];
+  const routesImport: string[] = [];
   const routesBody = [];
 
   pages.sort().forEach((page) => {
